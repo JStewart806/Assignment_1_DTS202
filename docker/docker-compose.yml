@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    image: medicore-app
+
+    ports:
+      - "5001:5000"
+
+    read_only: true
+
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+ 

@@ -1,0 +1,129 @@
+apiVersion: apps/v1 
+
+2 
+
+kind: Deployment 
+
+3 
+
+metadata: 
+
+4 
+
+name: medicore-app 
+
+5 
+
+spec: 
+
+6 
+
+replicas: 2 
+
+7 
+
+selector: 
+
+8 
+
+matchLabels: 
+
+9 
+
+app: medicore-app 
+
+10 
+
+template: 
+
+11 
+
+metadata: 
+
+12 
+
+labels: 
+
+13 
+
+app: medicore-app 
+
+14 
+
+spec: 
+
+15 
+
+containers: 
+
+16 
+
+- name: medicore-app 
+
+17 
+
+image: medicore-app:latest 
+
+18 
+
+ports: 
+
+19 
+
+- containerPort: 5001 
+
+20 
+
+resources: 
+
+21 
+
+requests: 
+
+22 
+
+memory: "128Mi" 
+
+23 
+
+cpu: "250m" 
+
+24 
+
+limits: 
+
+25 
+
+memory: "256Mi" 
+
+26 
+
+cpu: "500m" 
+
+27 
+
+securityContext: 
+
+28 
+
+runAsNonRoot: true 
+
+29 
+
+runAsUser: 1001 
+
+30 
+
+livenessProbe: 
+
+31 
+
+httpGet: 
+
+32 
+
+path: / 
+
+33 
+
+port: 5001 
